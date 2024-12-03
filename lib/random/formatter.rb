@@ -54,6 +54,9 @@
 
 module Random::Formatter
 
+  # The version
+  VERSION = "0.0.1"
+
   # Generate a random binary string.
   #
   # The argument _n_ specifies the length of the result string.

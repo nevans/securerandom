@@ -1,5 +1,5 @@
 name = File.basename(__FILE__, ".gemspec")
-version = ["lib", Array.new(name.count("-")+1).join("/")].find do |dir|
+version = ["lib", Array.new(name.count("-"), "..").join("/")].find do |dir|
   break File.foreach(File.join(__dir__, dir, "#{name.tr('-', '/')}.rb")) do |line|
     /^\s*VERSION\s*=\s*"(.*)"/ =~ line and break $1
   end rescue nil
@@ -11,9 +11,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tanaka Akira"]
   spec.email         = ["akr@fsij.org"]
 
-  spec.summary       = %q{Interface for secure random number generator.}
-  spec.description   = %q{Interface for secure random number generator.}
-  spec.homepage      = "https://github.com/ruby/securerandom"
+  spec.summary       = %q{Random number formatter.}
+  spec.description   = %q{Format generated random numbers in many manners.}
+  spec.homepage      = "https://github.com/ruby/random-formatter"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.6.0")
   spec.licenses      = ["Ruby", "BSD-2-Clause"]
 
