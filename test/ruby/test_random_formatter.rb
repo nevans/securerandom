@@ -1,5 +1,6 @@
 require 'test/unit'
 require 'random/formatter'
+require 'securerandom'
 
 module Random::Formatter
   module FormatterTest
@@ -159,7 +160,7 @@ module Random::Formatter
     end
   end
 
-  class TestClassMethods < Test::Unit::TestCase
+  class TestRandomClassMethods < Test::Unit::TestCase
     include FormatterTest
 
     def setup
@@ -167,7 +168,7 @@ module Random::Formatter
     end
   end
 
-  class TestInstanceMethods < Test::Unit::TestCase
+  class TestRandomInstanceMethods < Test::Unit::TestCase
     include FormatterTest
     include NotDefaultTest
 
@@ -175,4 +176,14 @@ module Random::Formatter
       @it = Random.new
     end
   end
+
+  class TestSecureRandomFormatterMethods < Test::Unit::TestCase
+    include FormatterTest
+    include NotDefaultTest
+
+    def setup
+      @it = SecureRandom
+    end
+  end
+
 end
